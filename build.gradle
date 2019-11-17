@@ -1,0 +1,30 @@
+apply plugin: 'java'
+
+project.ext {
+    cucumberVersion = '4.7.4'
+    junitVersion = '5.5.0'
+    restassuredVersion = '4.1.2'
+}
+
+dependencies {
+    implementation group: 'org.apache.commons', name: 'commons-csv', version: '1.7'
+
+    implementation 'io.cucumber:cucumber-java:' + cucumberVersion
+    implementation group: 'io.rest-assured', name: 'rest-assured', version: restassuredVersion
+    implementation group: 'io.rest-assured', name: 'json-schema-validator', version: restassuredVersion
+    testImplementation 'io.cucumber:cucumber-junit:' + cucumberVersion
+
+
+    implementation 'org.junit.jupiter:junit-jupiter-api:' + junitVersion
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:' + junitVersion
+    testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:' + junitVersion
+
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+test {
+    useJUnitPlatform()
+}
