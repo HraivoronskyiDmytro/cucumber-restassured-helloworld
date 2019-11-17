@@ -1,4 +1,4 @@
-Feature: Negative Service testing
+Feature: Negative Testing
 
   Background:
     Given I'm a hacker
@@ -40,7 +40,7 @@ Feature: Negative Service testing
   Scenario: Try to request Car Makers list with incorrect locale
     Given I'm a customer
     And I have incorrect locale
-    And I request "Makers" list
+    When I request "Makers" list
     Then The request get "500" response
 
 
